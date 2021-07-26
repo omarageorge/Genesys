@@ -5,6 +5,7 @@ A Blockchain based application written in Python to run it's own crypto currency
 ## Requirements
 
 - Python3
+- Flask
 
 ## Create a Virtual Environment
 
