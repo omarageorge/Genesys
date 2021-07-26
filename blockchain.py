@@ -95,29 +95,3 @@ class Blockchain():
                 return False
             else:
                 return True
-            
-
-
-
-def main():
-    blockchain = Blockchain()
-    database = ['hello world', 'whats app', 'hello', 'bye']
-    
-    
-    num = 0
-    for data in database:
-        num += 1
-        blockchain.mine(Block(data, num))
-        
-    
-    for block in blockchain.chain:
-        print(block)
-        print('\n')
-        
-        
-    print(blockchain.isValid())
-    
-
-
-if __name__ == '__main__':
-    main()
