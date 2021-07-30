@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genesys</title>
-  </head>
-  <body>
-    <h1>Genesys</h1>
+{% extends 'base.html' %} {% block title %}
+<title>Genesys: Welcome</title>
+{% endblock %} {% block body %}
+<main>
+  <h1>Genesys</h1>
 
-    <li>
-      <a href="/login">Login</a>
-    </li>
-    <li>
-      <a href="/register">Register</a>
-    </li>
-  </body>
-</html>
+  <li>
+    <a href="/login">Login</a>
+  </li>
+  <li>
+    <a href="/register">Register</a>
+  </li>
+</main>
+{% endblock %}

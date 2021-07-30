@@ -1,82 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genesys - Register</title>
-  </head>
-  <body>
-    <div class="container m-auto">
-      <h1>Register</h1>
+{% extends 'base.html' %} {% block title %}
+<title>Genesys: Register</title>
+{% endblock %} {% block body %}
+<div class="container m-auto p-3">
+  <!-- Registration card -->
+  <div class="card p-3 pt-4" style="width: 20rem">
+    <form action="/register" method="POST" autocomplete="off">
+      <div class="form-label-group mb-4">
+        <input
+          type="text"
+          value="{{request.form.name}}"
+          name="name"
+          class="form-control"
+          placeholder="Full Name"
+          required
+        />
+      </div>
 
-      <form action="/register" method="POST">
-        <div class="form-label-group">
-          <label for="name">Full Name</label>
-          <input
-            type="text"
-            value="{{request.form.name}}"
-            name="name"
-            class="form-control"
-            placeholder="Full Name"
-            required
-          />
-        </div>
+      <div class="form-label-group mb-4">
+        <input
+          type="email"
+          value="{{request.form.email}}"
+          name="email"
+          class="form-control"
+          placeholder="Email"
+          required
+        />
+      </div>
 
-        <div class="form-label-group">
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            value="{{request.form.email}}"
-            name="email"
-            class="form-control"
-            placeholder="Email"
-            required
-          />
-        </div>
+      <div class="form-label-group mb-4">
+        <input
+          type="text"
+          value="{{request.form.username}}"
+          name="username"
+          class="form-control"
+          placeholder="Username"
+          required
+        />
+      </div>
 
-        <div class="form-label-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            value="{{request.form.username}}"
-            name="username"
-            class="form-control"
-            placeholder="Username"
-            required
-          />
-        </div>
+      <div class="form-label-group mb-4">
+        <input
+          type="password"
+          value="{{request.form.password}}"
+          name="password"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+      </div>
 
-        <div class="form-label-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            value="{{request.form.password}}"
-            name="password"
-            class="form-control"
-            placeholder="Password"
-            required
-          />
-        </div>
+      <div class="form-label-group mb-4">
+        <input
+          type="password"
+          value="{{request.form.confirm}}"
+          name="confirm"
+          class="form-control"
+          placeholder="Confirm Password"
+          required
+        />
+      </div>
 
-        <div class="form-label-group">
-          <label for="confirm">Confirm Password</label>
-          <input
-            type="password"
-            value="{{request.form.confirm}}"
-            name="confirm"
-            class="form-control"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
+      <div class="form-label-group mb-4">
+        <button type="submit" class="btn btn-primary btn-block">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
-        <div class="form-label-group">
-          <button type="submit" class="btn btn-primary btn-block">
-            Register
-          </button>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
+{% endblock %}
