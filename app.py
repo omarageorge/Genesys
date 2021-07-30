@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, session, request, logging
-# from flask.helpers import flash
+from flask.helpers import flash
 from passlib.hash import sha256_crypt
 from flask_mysqldb import MySQL
 
@@ -10,6 +10,7 @@ from forms import *
 app = Flask(__name__)
 
 
+# MySQL database connection config
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'omara'
 app.config['MYSQL_PASSWORD'] = 'quantum1'
@@ -23,7 +24,6 @@ def log_in_user(username):
     pass
 
 
-
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
@@ -34,18 +34,8 @@ def register():
         email = form.email.data
         username = form.username.data
         password = form.password.data
-        confirm = form.confirm.data
-        
-        print('FORM VALIDATION:', form.validate())
-        print('Name:', name)
-        print('Email:', email)
-        print('Username:', username)
-        print('Password:', password)
-        print('Confirm Password:', confirm)
-        
-  
-     
-        if True:
+    
+        if isnewuser(username):
             password = sha256_crypt.encrypt(form.password.data)
             users.insert(name, email, username, password)
             log_in_user(username)
@@ -70,4 +60,4 @@ def index():
 
 if __name__ == '__main__':
     app.secret_key = 'secret123'
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
