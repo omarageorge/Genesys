@@ -5,7 +5,6 @@ A Blockchain based application written in Python to run it's own crypto currency
 ## Requirements
 
 - Python3
-- Flask
 
 ## Create a Virtual Environment
 
@@ -25,4 +24,12 @@ _Windows_
 
 ```sh
 venv\Scripts\activate.bat
+```
+
+## Install Packages
+
+All modules for this project are defined in the "requirements.txt" file and so in order to install all packages and dependencies for this project, do a pip install this way.
+
+```sh
+pip install -r requirements.txt
 ```
