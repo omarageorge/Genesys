@@ -94,6 +94,6 @@ def isnewtable(tableName):
 def isnewuser(username):
     users = Table('users', 'name', 'email', 'username', 'password')
     data = users.getall()
-    usernames = [users.get('username') for user in data]
+    usernames = [user.get('username') for user in data]
     
     return False if username in  usernames else True
