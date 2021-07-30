@@ -1,0 +1,4 @@
+{% macro render_field(field) %} {{ field.label }} {{ field.label(**keywords)
+|safe }} {% if field.errors %} {% for error in errors %}
+<span class="help-incline">{{ error }}</span>
+{% endfor %} {% endif %} {% endmacro %}
