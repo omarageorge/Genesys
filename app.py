@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, session, request, logging
-from flask.helpers import flash
-from passlib.hash import sha256_crypt
+# from flask.helpers import flash
+from passlib.hash import pbkdf2_sha256
 from flask_mysqldb import MySQL
 
 from sqlhelpers import *
@@ -21,7 +21,13 @@ mysql = MySQL(app)
 
 
 def log_in_user(username):
-    pass
+    users = Table('users', 'name', 'email', 'username', 'password')
+    user = users.getone('username', username)
+    
+    session['logged_in'] = True
+    session['username'] = username
+    session['name'] = user.get('name')
+    session['email'] = user.get('email')
 
 
 @app.route('/register', methods = ['GET', 'POST'])
@@ -36,12 +42,12 @@ def register():
         password = form.password.data
     
         if isnewuser(username):
-            password = sha256_crypt.encrypt(form.password.data)
+            password = pbkdf2_sha256.hash(form.password.data)
             users.insert(name, email, username, password)
             log_in_user(username)
             return redirect(url_for('dashboard'))
         else:
-            flash('User already exists', 'danger') 
+            # flash('User already exists', 'danger') 
             return redirect(url_for('register'))          
     
     return render_template('register.html', form=form)
@@ -50,7 +56,8 @@ def register():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    print(session)
+    return render_template('dashboard.html', session=session)
 
 
 @app.route('/')
