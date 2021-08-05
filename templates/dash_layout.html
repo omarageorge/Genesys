@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {% block title %} {% endblock %}
+  </head>
+  <body>
+    <header id="dash-header" class="container-fluid">
+      <span>
+        <h1 class="h5">GENESYS</h1>
+      </span>
+      <span>
+        <a href="/logout">Logout</a>
+      </span>
+    </header>
+
+    <main id="page-content" class="container-fluid m-0 p-0">
+      <aside id="side-bar">
+        <ul>
+          <li>
+            <i class="fas fa-tachometer-alt"></i>
+            <a href="/dashboard" class="h6">Dashboard</a>
+          </li>
+          <li>
+            <i class="fas fa-chart-area"></i>
+            <a href="/buy" class="h6">Buy</a>
+          </li>
+          <li>
+            <i class="fas fa-table"></i>
+            <a href="/send" class="h6">Send</a>
+          </li>
+        </ul>
+      </aside>
+      <section id="content">{% block content %} {% endblock %}</section>
+    </main>
+  </body>
+</html>

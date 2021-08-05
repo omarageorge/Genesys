@@ -1,0 +1,29 @@
+{% extends 'dash_layout.html' %} {% block title %}
+<title>Genesys - Buy</title>
+{% endblock %} {% block content %}
+
+<div class="container">
+  <h1 class="h3">Your current balance is {{ balance }} GS</h1>
+  <div class="pt-3">{% include 'includes/_messages.html' %}</div>
+</div>
+
+<!-- Form -->
+<div class="container">
+  <div class="pt-3">
+    {% from "includes/_formhelpers.html" import render_field %}
+  </div>
+
+  <div>
+    <form action="/buy" method="POST">
+      <div class="form-label-group mb-4">
+        {{render_field(form.amount, class_="form-control")}}
+      </div>
+
+      <div class="form-label-group mb-4 text-center">
+        <button type="submit" class="btn btn-primary btn-block">Buy Now</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
