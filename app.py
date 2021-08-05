@@ -6,15 +6,16 @@ from functools import wraps
 from sqlhelpers import *
 from forms import *
 import time
+from os import environ
 
 
 app = Flask(__name__)
 
 
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'omara'
-app.config['MYSQL_PASSWORD'] = 'quantum1'
+app.config['MYSQL_HOST'] = 'genesys.cs8dunfd82q1.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'admin'
+app.config['MYSQL_PASSWORD'] = environ.get('mysqldpassword')
 app.config['MYSQL_DB'] = 'genesys'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
