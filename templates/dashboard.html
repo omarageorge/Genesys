@@ -1,0 +1,62 @@
+{% extends 'dash_layout.html' %} {% block title %}
+<title>Genesys - Dashboard</title>
+{% endblock %} {% block content %}
+
+<div class="container">
+  <h1 class="h3">Welcome back, {{session.get('name')}}</h1>
+  <div class="pt-3">{% include 'includes/_messages.html' %}</div>
+</div>
+
+<!-- Price -->
+<div class="container pt-3">
+  <p class="h6">Your current balance is {{ balance }} GS</p>
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fas fa-chart-area"></i>
+      Price of Genesys (GS)
+    </div>
+    <div class="card-body">
+      <h1 class="h2">Today: <span class="green">UGX 500</span></h1>
+      <h1 class="h2">Yesterday: <span class="red">UGX 450</span></h1>
+    </div>
+    <div class="card-footer small text-muted">Updated today at {{ct}}</div>
+  </div>
+</div>
+
+<!-- Data -->
+<div class="container pt-3">
+  <div class="table-responsive">
+    <table
+      class="table table-bordered"
+      id="dataTable"
+      width="100%"
+      cellspacing="0"
+    >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Transaction</th>
+          <th>Hash</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <th>Transaction</th>
+          <th>Hash</th>
+        </tr>
+      </tfoot>
+      <tbody>
+        {% for block in blockchain %}
+        <tr>
+          <td>{{block.number}}</td>
+          <td>{{block.data}}</td>
+          <td>{{block.hash()}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

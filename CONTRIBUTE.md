@@ -53,7 +53,8 @@ git merge feature
 ## Step 6: Push your Code to Github
 
 ```sh
-git add push -u origin main
+git add <filename>
+git push -u origin main
 ```
 
 ## Step 7: Create a pull request
