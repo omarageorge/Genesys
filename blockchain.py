@@ -59,6 +59,7 @@ class Blockchain():
         self.chain = []
 
 
+
     #add a new block to the chain
     def add(self, block):
         self.chain.append(block)

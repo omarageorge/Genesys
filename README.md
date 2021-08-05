@@ -33,3 +33,11 @@ All modules for this project are defined in the "requirements.txt" file and so i
 ```sh
 pip install -r requirements.txt
 ```
+
+## CREATE DATABASE IN MY SQL
+
+Create a database in mysql called **genesys**
+
+```
+CREATE DATABASE genesys;
+```
