@@ -47,7 +47,7 @@ class Block():
         )
 
 
-#The "LinkedList" of the blocks-- a chain of blocks.
+#The "LinkedList" of the blocks-- a chain of blocks
 class Blockchain():
     #the number of zeros in front of each hash
     difficulty = 4
