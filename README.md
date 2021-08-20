@@ -1,6 +1,6 @@
 # The Genesys Blockchain
 
-A Blockchain based application written in Python to run it's own crypto currency and exchange.
+A Blockchain based application called genesis written in Python to run it's own crypto currency and exchange.
 
 ## Requirements
 
